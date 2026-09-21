@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fourier Workshop · Universidad de Málaga · 1–2 October 2026</title>
+<meta name="description" content="Fourier Workshop, 1–2 October 2026, Universidad de Málaga: programme, talks and how to get there.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1020'/%3E%3Cpath d='M3 16 Q7 4 11 16 T19 16 T29 16' fill='none' stroke='%2322d3ee' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+/* =====================  DESIGN TOKENS (colours live here)  ===================== */
+:root{
+  --bg:#0a0f1f;
+  --bg2:#0f1730;
+  --panel:#141d3b;
+  --panel2:#1a2547;
+  --line:rgba(255,255,255,.09);
+  --text:#e9edf9;
+  --muted:#9aa7cb;
+  --cyan:#22d3ee;
+  --violet:#a78bfa;
+  --pink:#f472b6;
+  --amber:#fbbf24;
+  --green:#34d399;
+  --metro1:#e11d48;
+  --radius:18px;
+  --maxw:1100px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--cyan)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+/* =====================  NAV  ===================== */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,15,31,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{font-weight:800;letter-spacing:.2px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:10px;white-space:nowrap}
+.brand svg{width:26px;height:26px}
+.links{display:flex;gap:4px}
+.links a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:999px;transition:.2s}
+.links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+
+/* =====================  HERO  ===================== */
+.hero{position:relative;overflow:hidden;padding:84px 0 170px;
+  background:
+    radial-gradient(900px 400px at 15% -10%,rgba(34,211,238,.18),transparent 60%),
+    radial-gradient(800px 420px at 90% 0%,rgba(167,139,250,.22),transparent 60%),
+    linear-gradient(180deg,var(--bg2),var(--bg));
+}
+#wave{position:absolute;inset:0;width:100%;height:100%;opacity:.9;pointer-events:none}
+.hero .wrap{position:relative}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;font-weight:700;font-size:14px;
+  background:rgba(34,211,238,.12);color:var(--cyan);border:1px solid rgba(34,211,238,.35)}
+h1{font-size:clamp(44px,9vw,92px);line-height:1;margin:22px 0 14px;font-weight:900;letter-spacing:-2px;
+  background:linear-gradient(100deg,#fff 0%,var(--cyan) 40%,var(--violet) 75%,var(--pink) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{font-size:clamp(18px,2.6vw,24px);color:#cdd6f3;max-width:640px;margin:0 0 30px}
+.meta{display:flex;flex-wrap:wrap;gap:12px}
+.meta div{background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:14px;padding:12px 16px;min-width:0}
+.meta small{display:block;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.meta strong{font-size:16px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;transition:.2s;border:1px solid transparent}
+.btn.primary{background:linear-gradient(100deg,var(--cyan),var(--violet));color:#07101f}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(34,211,238,.3)}
+.btn.ghost{border-color:var(--line);color:var(--text);background:rgba(255,255,255,.04)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+
+/* =====================  SECTIONS  ===================== */
+section{padding:72px 0}
+section.alt{background:var(--bg2)}
+.kicker{color:var(--cyan);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:13px}
+h2{font-size:clamp(30px,5vw,44px);margin:6px 0 10px;letter-spacing:-1px;line-height:1.1}
+.lead{color:var(--muted);max-width:660px;margin:0 0 36px}
+
+/* =====================  PROGRAMME  ===================== */
+.days{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.day{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.day header{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.day h3{margin:0;font-size:26px}
+.day .date{color:var(--muted);font-weight:600}
+.tl{list-style:none;margin:0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:74px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--cyan),var(--violet),var(--pink));opacity:.35;border-radius:2px}
+.tl li{display:grid;grid-template-columns:62px 26px 1fr;align-items:start;gap:0;padding:9px 0}
+.tl time{font-variant-numeric:tabular-nums;font-weight:800;color:var(--text);padding-top:2px}
+.dot{width:14px;height:14px;border-radius:50%;margin:6px auto 0;background:var(--c,var(--muted));box-shadow:0 0 0 4px var(--bg-ring,var(--panel)),0 0 14px var(--c,transparent);position:relative;z-index:1}
+.tl .what{padding-left:8px;min-width:0}
+.tl .what b{display:block;font-weight:700}
+.tl .what span{display:block;color:var(--muted);font-size:14.5px}
+.tl a.talklink{color:inherit;text-decoration:none;display:block;border-radius:12px;margin:-6px -10px;padding:6px 10px;transition:.2s}
+.tl a.talklink:hover{background:rgba(255,255,255,.06)}
+.tl .spk{color:var(--cyan);font-weight:800}
+.tl .ttl{color:#cfd7f2;font-size:14.5px;line-height:1.4;display:block}
+.t-talk{--c:var(--cyan)} .t-break{--c:var(--amber)} .t-discussion{--c:var(--violet)}
+.t-lunch{--c:var(--green)} .t-meeting{--c:var(--pink)} .t-free{--c:#64748b} .t-close{--c:#fff}
+.t-meeting .what{background:linear-gradient(100deg,rgba(244,114,182,.16),rgba(167,139,250,.10));border:1px solid rgba(244,114,182,.35);border-radius:14px;padding:10px 14px;margin-left:4px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted);font-size:13.5px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--c)}
+
+/* =====================  TALKS  ===================== */
+.talks{display:grid;gap:16px}
+.talk{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
+.talk:target,.talk[open]{border-color:rgba(34,211,238,.5)}
+.talk summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;padding:22px 24px}
+.talk summary::-webkit-details-marker{display:none}
+.num{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:18px;color:#07101f;
+  background:linear-gradient(135deg,var(--cyan),var(--violet))}
+.talk .who{color:var(--cyan);font-weight:800;font-size:15px}
+.talk h3{margin:2px 0 6px;font-size:clamp(17px,2.4vw,21px);line-height:1.3}
+.slot{display:inline-block;font-size:12.5px;font-weight:700;color:var(--muted);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+.chev{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.25s;color:var(--muted)}
+.talk[open] .chev{transform:rotate(180deg);background:rgba(255,255,255,.08);color:var(--text)}
+.abstract{padding:0 24px 26px 88px;color:#cdd6f3}
+.abstract .lbl{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 8px}
+.abstract p{margin:0 0 12px;max-width:74ch}
+.toolbar{display:flex;justify-content:flex-end;margin:-12px 0 16px}
+.toolbar button{background:none;border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:999px;font:600 13.5px inherit;font-family:inherit;cursor:pointer}
+.toolbar button:hover{color:var(--text);background:rgba(255,255,255,.07)}
+
+/* =====================  VENUE  ===================== */
+.venue{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px}
+.room{font-size:clamp(26px,4vw,34px);font-weight:900;margin:0;line-height:1.15;letter-spacing:-.5px}
+.card .addr{color:var(--muted);margin:8px 0 0}
+.mapbox{border-radius:14px;overflow:hidden;border:1px solid var(--line);margin-top:18px;aspect-ratio:16/10;background:var(--panel2)}
+.mapbox iframe{width:100%;height:100%;border:0;display:block}
+.route{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+.line1{width:38px;height:38px;border-radius:50%;background:var(--metro1);color:#fff;font-weight:900;display:grid;place-items:center;font-size:19px;box-shadow:0 0 0 4px rgba(225,29,72,.25);flex:none}
+.route h3{margin:0;font-size:22px}
+.steps{list-style:none;counter-reset:s;margin:18px 0 0;padding:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 18px 48px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:14px;background:rgba(34,211,238,.14);color:var(--cyan);border:1px solid rgba(34,211,238,.4)}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:15px;top:36px;bottom:4px;width:2px;background:var(--line)}
+.steps b{display:block;font-size:16.5px;margin-bottom:2px}
+.steps span{color:#c4cdea;font-size:15px}
+.stops{list-style:none;margin:20px 0 0;padding:16px 18px;background:rgba(0,0,0,.2);border-radius:14px;border:1px solid var(--line)}
+.stops li{position:relative;padding:3px 0 3px 26px;color:var(--muted);font-size:14.5px}
+.stops li::before{content:"";position:absolute;left:5px;top:0;bottom:0;width:4px;background:var(--metro1);opacity:.85}
+.stops li:first-child::before{top:50%}
+.stops li:last-child::before{bottom:50%}
+.stops li::after{content:"";position:absolute;left:1px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--bg);border:3px solid var(--metro1)}
+.stops li.key{color:var(--text);font-weight:800;font-size:16px}
+.stops li.key::after{background:#fff}
+.stops small{color:var(--muted);font-weight:500;margin-left:6px}
+.stops .foot{margin-top:6px;padding-left:26px;color:var(--muted);font-size:13px;font-style:italic}
+.stops .foot::before,.stops .foot::after{display:none}
+.tips{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.tips li{padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#c4cdea;font-size:14.5px}
+
+footer{border-top:1px solid var(--line);padding:34px 0 46px;color:var(--muted);font-size:14.5px;text-align:center}
+footer a{color:var(--muted)}
+
+/* =====================  RESPONSIVE  ===================== */
+@media (max-width:900px){
+  .days,.venue{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .links a:nth-child(n+1){padding:8px 9px;font-size:13.5px}
+  .brand span{display:none}
+  .hero{padding:56px 0 190px}
+  .day{padding:22px 16px}
+  .talk summary{grid-template-columns:auto 1fr;padding:18px 16px}
+  .chev{display:none}
+  .abstract{padding:0 16px 22px}
+  .num{width:40px;height:40px;font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Fourier Workshop">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 16 Q6 3 10 16 T18 16 T30 16" fill="none" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs></svg>
+      <span id="navName">Fourier Workshop</span>
+    </a>
+    <div class="links">
+      <a href="#program">Programme</a>
+      <a href="#talks">Talks</a>
+      <a href="#venue">Venue</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <span class="chip" id="heroDates"></span>
+    <h1 id="heroName">Fourier Workshop</h1>
+    <p class="tagline" id="heroTagline"></p>
+    <div class="meta" id="heroMeta"></div>
+    <div class="cta">
+      <a class="btn primary" href="#program">See the programme</a>
+      <a class="btn ghost" href="#venue">How to get there</a>
+    </div>
+  </div>
+</header>
+
+<section id="program">
+  <div class="wrap">
+    <div class="kicker">Two days</div>
+    <h2>Programme</h2>
+    <p class="lead">Six talks, plenty of time for informal discussion, and a dedicated session on a future Marie Skłodowska-Curie Doctoral Network proposal.</p>
+    <div class="days" id="days"></div>
+    <div class="legend" id="legend"></div>
+  </div>
+</section>
+
+<section id="talks" class="alt">
+  <div class="wrap">
+    <div class="kicker">Speakers</div>
+    <h2>Talks</h2>
+    <p class="lead">Talks are scheduled in 45-minute slots. Click a talk to read its abstract.</p>
+    <div class="toolbar"><button id="toggleAll" type="button">Expand all abstracts</button></div>
+    <div class="talks" id="talkList"></div>
+  </div>
+</section>
+
+<section id="venue">
+  <div class="wrap">
+    <div class="kicker">Venue</div>
+    <h2>Getting there</h2>
+    <p class="lead" id="dirIntro"></p>
+    <div class="venue">
+      <div class="card">
+        <div class="kicker">Workshop room</div>
+        <p class="room" id="vRoom"></p>
+        <p class="addr" id="vAddr"></p>
+        <div class="mapbox"><iframe id="map" title="Map of the venue" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="cta" style="margin-top:16px"><a class="btn ghost" id="mapLink" target="_blank" rel="noopener">Open in Google Maps ↗</a></div>
+      </div>
+      <div class="card">
+        <div class="route"><div class="line1">1</div><h3>From the city centre by metro</h3></div>
+        <ol class="steps" id="steps"></ol>
+        <ul class="stops" id="stops"></ul>
+        <ul class="tips" id="tips"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div id="footText"></div>
+    <div id="footContact" style="margin-top:6px"></div>
+  </div>
+</footer>
+
+<noscript><p style="padding:24px;text-align:center">Please enable JavaScript to view this page.</p></noscript>
+
+<script src="content.js"></script>
+<script>
+/* =====================  RENDERING (you normally don't need to touch this)  ===================== */
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const S = SITE;
+
+  document.title = S.name + " · " + S.place.split(",")[0] + " · " + S.dates;
+  $("navName").textContent = S.name;
+
+  /* hero */
+  $("heroDates").textContent = "📅 " + S.dates;
+  $("heroName").textContent = S.name;
+  $("heroTagline").textContent = S.tagline;
+  $("heroMeta").innerHTML =
+    `<div><small>Where</small><strong>${esc(S.venue.room)}</strong></div>` +
+    `<div><small>Building</small><strong>${esc(S.venue.building)}</strong></div>` +
+    `<div><small>University</small><strong>${esc(S.venue.university)}</strong></div>`;
+
+  /* talk lookup + slot info derived from the schedule */
+  const talkById = {}; S.talks.forEach(t => talkById[t.id] = t);
+  const slot = {};
+  S.schedule.forEach(d => d.items.forEach(it => { if (it.type === "talk") slot[it.talk] = { day: d.day, time: it.time }; }));
+
+  /* programme */
+  const labels = { talk:"Talk", break:"Break", discussion:"Discussion", lunch:"Lunch", meeting:"Meeting", free:"Free time", close:"Closing" };
+  $("days").innerHTML = S.schedule.map(d => `
+    <article class="day">
+      <header><h3>${esc(d.day)}</h3><span class="date">${esc(d.date)}</span></header>
+      <ul class="tl">
+        ${d.items.map(it => {
+          let body;
+          if (it.type === "talk") {
+            const t = talkById[it.talk] || { speaker: it.talk, title: "" };
+            body = `<a class="talklink" href="#talk-${esc(it.talk)}" data-open="${esc(it.talk)}"><span class="spk">${esc(t.speaker)}</span><span class="ttl">${esc(t.title)}</span></a>`;
+          } else {
+            body = `<b>${esc(it.title || labels[it.type] || "")}</b>` + (it.note ? `<span>${esc(it.note)}</span>` : "");
+          }
+          return `<li class="t-${esc(it.type)}"><time>${esc(it.time)}</time><i class="dot"></i><div class="what">${body}</div></li>`;
+        }).join("")}
+      </ul>
+    </article>`).join("");
+
+  const used = [...new Set(S.schedule.flatMap(d => d.items.map(i => i.type)))];
+  const legendColors = { talk:"var(--cyan)", break:"var(--amber)", discussion:"var(--violet)", lunch:"var(--green)", meeting:"var(--pink)", free:"#64748b", close:"#fff" };
+  $("legend").innerHTML = used.map(t => `<span><i style="--c:${legendColors[t]}"></i>${labels[t] || t}</span>`).join("");
+
+  /* talks */
+  $("talkList").innerHTML = S.talks.map((t, i) => {
+    const s = slot[t.id];
+    const paras = String(t.abstract).trim().split(/\n\s*\n/).map(p => `<p>${esc(p.replace(/\s*\n\s*/g, " "))}</p>`).join("");
+    return `
+    <details class="talk" id="talk-${esc(t.id)}">
+      <summary>
+        <div class="num">${i + 1}</div>
+        <div>
+          <div class="who">${esc(t.speaker)}</div>
+          <h3>${esc(t.title)}</h3>
+          ${s ? `<span class="slot">${esc(s.day)} · ${esc(s.time)}</span>` : ""}
+        </div>
+        <div class="chev" aria-hidden="true">▾</div>
+      </summary>
+      <div class="abstract"><p class="lbl">Abstract</p>${paras}</div>
+    </details>`;
+  }).join("");
+
+  const all = () => [...document.querySelectorAll(".talk")];
+  const btn = $("toggleAll");
+  btn.addEventListener("click", () => {
+    const open = all().some(d => !d.open);
+    all().forEach(d => d.open = open);
+    btn.textContent = open ? "Collapse all abstracts" : "Expand all abstracts";
+  });
+  /* schedule link -> open that talk */
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-open]");
+    if (!a) return;
+    const d = $("talk-" + a.dataset.open);
+    if (d) d.open = true;
+  });
+  function openFromHash(){ const h = location.hash; if (h.startsWith("#talk-")) { const d = document.querySelector(h); if (d) d.open = true; } }
+  window.addEventListener("hashchange", openFromHash); openFromHash();
+
+  /* venue */
+  const V = S.venue, D = S.directions;
+  $("dirIntro").textContent = D.intro;
+  $("vRoom").textContent = V.room;
+  $("vAddr").innerHTML = `${esc(V.building)}<br>${esc(V.university)}<br>${esc(V.address)}`;
+  const q = encodeURIComponent(V.mapQuery);
+  $("map").src = `https://maps.google.com/maps?q=${q}&z=16&output=embed`;
+  $("mapLink").href = `https://www.google.com/maps/search/?api=1&query=${q}`;
+  $("steps").innerHTML = D.steps.map(s => `<li><b>${esc(s.title)}</b><span>${s.text}</span></li>`).join("");
+  $("stops").innerHTML = D.stops.map(s => `<li class="${s.key ? "key" : ""}">${esc(s.name)}${s.note ? `<small>${esc(s.note)}</small>` : ""}</li>`).join("")
+    + (D.stopsFootnote ? `<li class="foot">${esc(D.stopsFootnote)}</li>` : "");
+  $("tips").innerHTML = D.tips.map(t => `<li>${esc(t)}</li>`).join("")
+    + (D.metroWebsite ? `<li><a href="${esc(D.metroWebsite)}" target="_blank" rel="noopener">Metro Málaga official website ↗</a></li>` : "");
+
+  /* footer */
+  $("footText").textContent = S.footer;
+  $("footContact").innerHTML = S.contactEmail ? `Questions? <a href="mailto:${esc(S.contactEmail)}">${esc(S.contactEmail)}</a>` : "";
+
+  /* =====================  HERO ANIMATION: Fourier synthesis of a square wave  ===================== */
+  const cv = $("wave"), ctx = cv.getContext("2d");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let W, H, dpr;
+  function size(){ dpr = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener("resize", size);
+
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    const amp = Math.min(H * 0.09, 52), cy = H - amp * 1.9 - 8, k = (2 * Math.PI) / Math.max(W * 0.55, 380);
+    const nMax = 9;
+    const cycle = (t / 2600) % (nMax + 3);            // number of harmonics grows, then holds, then restarts
+    const n = Math.max(1, Math.min(nMax, 1 + cycle));
+    const phase = t / 1400;
+
+    function partial(x, terms){
+      let y = 0;
+      for (let j = 0; j < terms; j++){
+        const m = 2 * j + 1;
+        const g = Math.max(0, Math.min(1, n - j));      // fractional fade-in of the newest harmonic
+        y += g * Math.sin(m * (x * k - phase)) / m;
+      }
+      return (4 / Math.PI) * y;
+    }
+    // individual harmonics (faint)
+    const cols = ["#22d3ee","#a78bfa","#f472b6","#fbbf24","#34d399"];
+    for (let j = 0; j < 5; j++){
+      const g = Math.max(0, Math.min(1, n - 1 - j)); if (g <= 0 && j > 0) continue;
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 5){
+        const m = 2 * j + 1;
+        const y = cy - amp * (4 / Math.PI) * Math.sin(m * (x * k - phase)) / m * (j === 0 ? 1 : g);
+        x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = cols[j]; ctx.globalAlpha = .16; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+    // sum
+    ctx.globalAlpha = .9; ctx.lineWidth = 3; ctx.lineJoin = "round";
+    const grad = ctx.createLinearGradient(0,0,W,0);
+    grad.addColorStop(0,"rgba(34,211,238,0)"); grad.addColorStop(.25,"#22d3ee"); grad.addColorStop(.7,"#a78bfa"); grad.addColorStop(1,"rgba(244,114,182,.15)");
+    ctx.strokeStyle = grad; ctx.shadowColor = "rgba(34,211,238,.6)"; ctx.shadowBlur = 14;
+    ctx.beginPath();
+    const terms = Math.ceil(n);
+    for (let x = 0; x <= W; x += 3){
+      const y = cy - amp * partial(x, terms);
+      x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke(); ctx.shadowBlur = 0; ctx.globalAlpha = 1;
+  }
+  if (reduce) { draw(2600 * 8); }
+  else { (function loop(t){ draw(t); requestAnimationFrame(loop); })(0); }
+})();
+</script>
+</body>
+</html>
