@@ -17,11 +17,23 @@
 const SITE = {
 
   /* ---------- General ---------- */
-  name: "Fourier Workshop",
-  tagline: "Fourier and Walsh analysis in combinatorial optimization",
+  name: "Workshop on Fourier Analysis for Combinatorial Optimization",
+  tagline: "One transform where all problems meet",
   dates: "1–2 October 2026",
   place: "Universidad de Málaga, Spain",
   contactEmail: "chicano@uma.es",          // set to "" to hide the contact line
+
+  /* ---------- Logos ----------
+     Put the image file in the same folder as index.html and write its name in `file`.
+     plate: "light" -> logo sits on a white rounded plate (use for logos made for white backgrounds)
+            "none"  -> logo is shown directly on the dark background (use for white/transparent logos)
+     url:   optional link opened when the logo is clicked ("" for no link)
+     You can add more logos (e.g. university, sponsors): copy the whole { ... } block.
+     Leave the list empty ([]) to show no logos.
+  */
+  logos: [
+    { file: "neo-logo.png", alt: "NEO research group – Universidad de Málaga", url: "https://neo.lcc.uma.es/new/", plate: "none" },
+  ],
 
   /* ---------- Venue ---------- */
   venue: {
