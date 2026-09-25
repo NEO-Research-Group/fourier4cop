@@ -110,7 +110,7 @@ h2{font-size:clamp(30px,5vw,44px);margin:6px 0 10px;letter-spacing:-1px;line-hei
 .tl .spk{color:var(--cyan);font-weight:800}
 .tl .ttl{color:#cfd7f2;font-size:14.5px;line-height:1.4;display:block}
 .t-talk{--c:var(--cyan)} .t-break{--c:var(--amber)} .t-discussion{--c:var(--violet)}
-.t-lunch{--c:var(--green)} .t-meeting{--c:var(--pink)} .t-free{--c:#64748b} .t-close{--c:#fff}
+.t-lunch{--c:var(--green)} .t-meeting{--c:var(--pink)} .t-free{--c:#64748b} .t-close,.t-open,.t-organization {--c:#fff}
 .t-meeting .what{background:linear-gradient(100deg,rgba(244,114,182,.16),rgba(167,139,250,.10));border:1px solid rgba(244,114,182,.35);border-radius:14px;padding:10px 14px;margin-left:4px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--muted);font-size:13.5px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--c)}
@@ -287,7 +287,7 @@ footer a{color:var(--muted)}
   $("heroMeta").innerHTML =
     `<div><small>Where</small><strong>${esc(S.venue.room)}</strong></div>` +
     `<div><small>Building</small><strong>${esc(S.venue.building)}</strong></div>` +
-    `<div><small>University</small><strong>${esc(S.venue.university)}</strong></div>`;
+    `<div><small>Campus</small><strong>${esc(S.venue.university)}</strong></div>`;
 
   /* talk lookup + slot info derived from the schedule */
   const talkById = {}; S.talks.forEach(t => talkById[t.id] = t);
@@ -295,7 +295,7 @@ footer a{color:var(--muted)}
   S.schedule.forEach(d => d.items.forEach(it => { if (it.type === "talk") slot[it.talk] = { day: d.day, time: it.time }; }));
 
   /* programme */
-  const labels = { talk:"Talk", break:"Break", discussion:"Discussion", lunch:"Lunch", meeting:"Meeting", free:"Free time", close:"Closing" };
+  const labels = { talk:"Talk", break:"Break", discussion:"Discussion", lunch:"Lunch", meeting:"Meeting", free:"Free time", close:"Closing" , open: "Welcome", organization: "Organization"};
   $("days").innerHTML = S.schedule.map(d => `
     <article class="day">
       <header><h3>${esc(d.day)}</h3><span class="date">${esc(d.date)}</span></header>
@@ -314,7 +314,7 @@ footer a{color:var(--muted)}
     </article>`).join("");
 
   const used = [...new Set(S.schedule.flatMap(d => d.items.map(i => i.type)))];
-  const legendColors = { talk:"var(--cyan)", break:"var(--amber)", discussion:"var(--violet)", lunch:"var(--green)", meeting:"var(--pink)", free:"#64748b", close:"#fff" };
+  const legendColors = { talk:"var(--cyan)", break:"var(--amber)", discussion:"var(--violet)", lunch:"var(--green)", meeting:"var(--pink)", free:"#64748b", close:"#fff", open:"#fff", organization: "#fff" };
   $("legend").innerHTML = used.map(t => `<span><i style="--c:${legendColors[t]}"></i>${labels[t] || t}</span>`).join("");
 
   /* talks */

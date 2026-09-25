@@ -39,7 +39,7 @@ const SITE = {
   venue: {
     room: "Sala de Grados C",
     building: "Escuela Técnica Superior de Ingeniería Informática",
-    university: "Universidad de Málaga",
+    university: "Teatinos, Universidad de Málaga",
     address: "Bulevar Louis Pasteur, 35 · Campus de Teatinos · 29071 Málaga, Spain",
     mapQuery: "Escuela Técnica Superior de Ingeniería Informática, Bulevar Louis Pasteur 35, Málaga",
   },
@@ -54,6 +54,7 @@ const SITE = {
       day: "Day 1",
       date: "Thursday, 1 October 2026",
       items: [
+        { time: "09:55", type: "organization", title: "Welcome" },
         { time: "10:00", type: "talk", talk: "santucci" },
         { time: "10:45", type: "talk", talk: "verel" },
         { time: "11:30", type: "break", title: "Coffee break" },
@@ -74,7 +75,7 @@ const SITE = {
         { time: "11:30", type: "break", title: "Coffee break" },
         { time: "12:00", type: "talk", talk: "lozano" },
         { time: "12:45", type: "discussion", title: "Informal discussions" },
-        { time: "13:30", type: "close", title: "Closing" },
+        { time: "13:30", type: "organization", title: "Closing" },
         { time: "13:35", type: "lunch", title: "Farewell lunch" },
       ],
     },
